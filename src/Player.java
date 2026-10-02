@@ -5,11 +5,13 @@ public class Player {
     private final ArrayList<Item> inventory;
     private Item items;
     private int health;
+    private final ArrayList<Weapon> equipped;
 
     public Player(Room firstRoom) {
         this.currentRoom = firstRoom;
         this.inventory = new ArrayList<>();
         this.health = 100;
+        this.equipped = new ArrayList<>();
     }
 
     public String lookAround() {
@@ -155,4 +157,36 @@ public class Player {
         }
 
     }
+    public WeaponEquip equip(String itemName) {
+        Item item = findItemInventory(itemName);
+        if (item instanceof Weapon weapon) {
+            if(!equipped.isEmpty()){
+                inventory.add(equipped.get(0));
+                equipped.clear();
+            }
+            inventory.remove(item);
+            equipped.add(weapon);
+            return WeaponEquip.EQUIPPED;
+        }
+        if (item != null) {
+            return WeaponEquip.NOT_EQUIPPED;
+        } else {
+            return WeaponEquip.NOT_FOUND;
+        }
+
+    }
+
+    public WeaponEquip attack() {
+        if (equipped.isEmpty()) {
+            return WeaponEquip.NOT_EQUIPPED;
+        }
+        Weapon weapon = equipped.get(0);
+
+        if (!weapon.canUse()) {
+            return WeaponEquip.NOT_FOUND;
+        }
+        weapon.attack();
+        return WeaponEquip.EQUIPPED;
+    }
+
 }

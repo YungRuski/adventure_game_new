@@ -66,6 +66,24 @@ public class AdventureUI {
 
                     }
                 }
+                case "EQUIP" -> {
+                    WeaponEquip result = adventure.equip(argument);
+                    switch (result){
+                        case WeaponEquip.EQUIPPED -> IO.println("You have equipped " + argument);
+                        case WeaponEquip.NOT_EQUIPPED -> IO.println("You cannot equip " + argument);
+                        case WeaponEquip.NOT_FOUND -> IO.println("There is no " + argument + " in your inventory");
+                    }
+                }
+                case "ATTACK" -> {
+                    WeaponEquip result = adventure.attack();
+
+                    switch (result){
+                        case WeaponEquip.EQUIPPED -> IO.println("You are attacking");
+                        case WeaponEquip.NOT_EQUIPPED -> IO.println("you cannot attack with that");
+                        case WeaponEquip.NOT_FOUND -> IO.println("that is not a weapon");
+                    }
+
+                }
                 default -> {
                 }
             }

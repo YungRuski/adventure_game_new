@@ -8,4 +8,8 @@ public MeleeWeapon(String itemName, String itemDescription){
 
     return true;
 }
+    @Override
+    public void attack(){
+        IO.println("*slash sound effect*");
+    }
 }
