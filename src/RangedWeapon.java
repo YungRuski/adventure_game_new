@@ -1,4 +1,4 @@
-public class RangedWeapon extends Weapon{
+public class RangedWeapon extends Weapon {
     int ammunition;
 
     public RangedWeapon(String itemName, String itemDescription, int ammunition) {
@@ -11,9 +11,10 @@ public class RangedWeapon extends Weapon{
     public boolean canUse() {
         return ammunition > 0;
     }
+
     @Override
-    public void attack() {
-        ammunition--;
-        IO.println("POW!");
+    public int attack() {
+       ammunition--;
+       return ammunition;
     }
 }

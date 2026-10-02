@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class AdventureUI {
 
     public void startGame() {
@@ -52,7 +54,17 @@ public class AdventureUI {
                     }
                 }
                 case "INVENTORY" -> {
-                    adventure.printInventory();
+                    ArrayList<Item> inventory = adventure.getInventory();
+                    ArrayList<Weapon> equipped = adventure.getEquipped();
+                    if (inventory.isEmpty() && equipped.isEmpty()) {
+                        IO.println("Nothing in inventory.");
+                    }
+                    for (Item item : inventory) {
+                        IO.println(item);
+                    }
+                    for (Weapon weapon : equipped) {
+                        IO.println("Equipped: " + weapon);
+                    }
                 }
                 case "HEALTH" -> {
                     adventure.printHealth();
@@ -68,19 +80,24 @@ public class AdventureUI {
                 }
                 case "EQUIP" -> {
                     WeaponEquip result = adventure.equip(argument);
-                    switch (result){
+                    switch (result) {
                         case WeaponEquip.EQUIPPED -> IO.println("You have equipped " + argument);
                         case WeaponEquip.NO_WEAPON -> IO.println("You cannot equip " + argument);
                         case WeaponEquip.CANNOT_ATTACK -> IO.println("There is no " + argument + " in your inventory");
                     }
                 }
                 case "ATTACK" -> {
-                    WeaponEquip result = adventure.attack();
+                    int result = adventure.attack();
 
-                    switch (result){
-                        case WeaponEquip.EQUIPPED -> IO.println("You are attacking");
-                        case WeaponEquip.NO_WEAPON -> IO.println("You dont have a weapon equipped");
-                        case WeaponEquip.CANNOT_ATTACK -> IO.println("that is not a weapon");
+                    if (result == -2) {
+                        IO.println("You don't have a weapon equipped");
+                    } else if (result == -1) {
+                        IO.println("You are attacking with your melee weapon");
+                    } else if (result == 0) {
+                        IO.println("You have no ammunition left");
+                    } else {
+                        IO.println("You are attacking");
+                        IO.println("You have " + result + " shots left");
                     }
 
                 }
