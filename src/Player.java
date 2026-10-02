@@ -164,7 +164,6 @@ public class Player {
                 inventory.add(equipped.get(0));
                 equipped.clear();
             }
-            inventory.remove(item);
             equipped.add(weapon);
             return WeaponEquip.EQUIPPED;
         }

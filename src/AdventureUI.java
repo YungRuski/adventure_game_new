@@ -80,7 +80,7 @@ public class AdventureUI {
                     switch (result){
                         case WeaponEquip.EQUIPPED -> IO.println("You are attacking");
                         case WeaponEquip.NO_WEAPON -> IO.println("You dont have a weapon equipped");
-                        case WeaponEquip.CANNOT_ATTACK -> IO.println("that is not a weapon");
+                        case WeaponEquip.CANNOT_ATTACK -> IO.println("Out of ammunition");
                     }
 
                 }
