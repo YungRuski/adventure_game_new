@@ -169,21 +169,21 @@ public class Player {
             return WeaponEquip.EQUIPPED;
         }
         if (item != null) {
-            return WeaponEquip.NOT_EQUIPPED;
+            return WeaponEquip.NO_WEAPON;
         } else {
-            return WeaponEquip.NOT_FOUND;
+            return WeaponEquip.CANNOT_ATTACK;
         }
 
     }
 
     public WeaponEquip attack() {
         if (equipped.isEmpty()) {
-            return WeaponEquip.NOT_EQUIPPED;
+            return WeaponEquip.NO_WEAPON;
         }
         Weapon weapon = equipped.get(0);
 
         if (!weapon.canUse()) {
-            return WeaponEquip.NOT_FOUND;
+            return WeaponEquip.CANNOT_ATTACK;
         }
         weapon.attack();
         return WeaponEquip.EQUIPPED;

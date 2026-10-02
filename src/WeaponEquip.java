@@ -1,2 +1,3 @@
-public enum WeaponEquip { NOT_EQUIPPED, EQUIPPED, NOT_FOUND
+public enum WeaponEquip {
+    NO_WEAPON, EQUIPPED, CANNOT_ATTACK
 }

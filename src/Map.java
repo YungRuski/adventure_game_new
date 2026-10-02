@@ -29,10 +29,10 @@ public class Map {
         MeleeWeapon sword = new MeleeWeapon("Sword", "a shiny sword.");
         MeleeWeapon baton = new MeleeWeapon("Baton", "a big stick used on civilians.");
         MeleeWeapon axe = new MeleeWeapon("Axe", "a heavy battle axe.");
-        RangedWeapon slingshot = new RangedWeapon("Slingshot", "a little slingshot that shoots rocks.");
-        RangedWeapon shortbow = new RangedWeapon("Shortbow", "a bow used for short distances.");
-        RangedWeapon crossbow = new RangedWeapon("Crossbow", "a crossbow that shoots fire arrows.");
-        RangedWeapon wand = new RangedWeapon("Wand", "a wand used by common sorceress");
+        RangedWeapon slingshot = new RangedWeapon("Slingshot", "a little slingshot that shoots rocks.", 6);
+        RangedWeapon shortbow = new RangedWeapon("Shortbow", "a bow used for short distances.", 10);
+        RangedWeapon crossbow = new RangedWeapon("Crossbow", "a crossbow that shoots fire arrows.", 15);
+        RangedWeapon wand = new RangedWeapon("Wand", "a wand used by common sorceress", 20);
 
 
         Room room1 = new Room("Room 1", "A room with no distinct features, except two doors.");

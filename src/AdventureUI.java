@@ -70,8 +70,8 @@ public class AdventureUI {
                     WeaponEquip result = adventure.equip(argument);
                     switch (result){
                         case WeaponEquip.EQUIPPED -> IO.println("You have equipped " + argument);
-                        case WeaponEquip.NOT_EQUIPPED -> IO.println("You cannot equip " + argument);
-                        case WeaponEquip.NOT_FOUND -> IO.println("There is no " + argument + " in your inventory");
+                        case WeaponEquip.NO_WEAPON -> IO.println("You cannot equip " + argument);
+                        case WeaponEquip.CANNOT_ATTACK -> IO.println("There is no " + argument + " in your inventory");
                     }
                 }
                 case "ATTACK" -> {
@@ -79,8 +79,8 @@ public class AdventureUI {
 
                     switch (result){
                         case WeaponEquip.EQUIPPED -> IO.println("You are attacking");
-                        case WeaponEquip.NOT_EQUIPPED -> IO.println("you cannot attack with that");
-                        case WeaponEquip.NOT_FOUND -> IO.println("that is not a weapon");
+                        case WeaponEquip.NO_WEAPON -> IO.println("You dont have a weapon equipped");
+                        case WeaponEquip.CANNOT_ATTACK -> IO.println("that is not a weapon");
                     }
 
                 }
