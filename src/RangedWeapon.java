@@ -14,7 +14,9 @@ public class RangedWeapon extends Weapon {
 
     @Override
     public int attack() {
-       ammunition--;
-       return ammunition;
+        if(ammunition == 0){
+            return 0;
+        }
+        return ammunition--;
     }
 }

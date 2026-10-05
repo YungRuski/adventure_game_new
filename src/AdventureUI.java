@@ -97,7 +97,7 @@ public class AdventureUI {
                         IO.println("You have no ammunition left");
                     } else {
                         IO.println("You are attacking");
-                        IO.println("You have " + result + " shots left");
+                        IO.println("You have " + (result - 1) + " shots left");
                     }
 
                 }
