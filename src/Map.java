@@ -25,14 +25,14 @@ public class Map {
         Food suspiciousSteak = new Food ("Steak", "a steak filled with maggots", -20);
         Food steak = new Food ("Wagyu steak", "a steak filled with fat marbling", 50);
 
-        MeleeWeapon knife = new MeleeWeapon("Knife", "a hunting knife.");
-        MeleeWeapon sword = new MeleeWeapon("Sword", "a shiny sword.");
-        MeleeWeapon baton = new MeleeWeapon("Baton", "a big stick used on civilians.");
-        MeleeWeapon axe = new MeleeWeapon("Axe", "a heavy battle axe.");
-        RangedWeapon slingshot = new RangedWeapon("Slingshot", "a little slingshot that shoots rocks.", 6);
-        RangedWeapon shortbow = new RangedWeapon("Shortbow", "a bow used for short distances.", 10);
-        RangedWeapon crossbow = new RangedWeapon("Crossbow", "a crossbow that shoots fire arrows.", 15);
-        RangedWeapon wand = new RangedWeapon("Wand", "a wand used by common sorceress", 20);
+        MeleeWeapon knife = new MeleeWeapon("Knife", "a hunting knife.", 7);
+        MeleeWeapon sword = new MeleeWeapon("Sword", "a shiny sword.", 10);
+        MeleeWeapon baton = new MeleeWeapon("Baton", "a big stick used on civilians.", 5);
+        MeleeWeapon axe = new MeleeWeapon("Axe", "a heavy battle axe.", 12);
+        RangedWeapon slingshot = new RangedWeapon("Slingshot", "a little slingshot that shoots rocks.", 6, 5);
+        RangedWeapon shortbow = new RangedWeapon("Shortbow", "a bow used for short distances.", 10, 10);
+        RangedWeapon crossbow = new RangedWeapon("Crossbow", "a crossbow that shoots fire arrows.", 15, 14);
+        RangedWeapon wand = new RangedWeapon("Wand", "a wand used by common sorceress", 20, 25);
 
 
         Room room1 = new Room("Room 1", "A room with no distinct features, except two doors.");
