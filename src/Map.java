@@ -29,10 +29,18 @@ public class Map {
         MeleeWeapon sword = new MeleeWeapon("Sword", "a shiny sword.", 10);
         MeleeWeapon baton = new MeleeWeapon("Baton", "a big stick used on civilians.", 5);
         MeleeWeapon axe = new MeleeWeapon("Axe", "a heavy battle axe.", 12);
+        MeleeWeapon stone = new MeleeWeapon("Stone", "a small stone", 4);
         RangedWeapon slingshot = new RangedWeapon("Slingshot", "a little slingshot that shoots rocks.", 6, 5);
         RangedWeapon shortbow = new RangedWeapon("Shortbow", "a bow used for short distances.", 10, 10);
         RangedWeapon crossbow = new RangedWeapon("Crossbow", "a crossbow that shoots fire arrows.", 15, 14);
         RangedWeapon wand = new RangedWeapon("Wand", "a wand used by common sorceress", 20, 25);
+        RangedWeapon potions = new RangedWeapon("Potion", "an instant damage potion", 2, 25);
+
+
+        Enemy troll = new Enemy("Troll", "a small ugly troll", 25, knife);
+        Enemy skeleton = new Enemy("Skeleton", "a spooky scary skeleton", 30, sword);
+        Enemy goblin = new Enemy("Goblin", "a money hungry goblin", 15, stone);
+        Enemy witch = new Enemy("Witch", "A stinking ugly hag", 45, potions);
 
 
         Room room1 = new Room("Room 1", "A room with no distinct features, except two doors.");
@@ -47,16 +55,20 @@ public class Map {
 
         room1.addItem(lamp);
         room1.addItem(knife);
+        room1.addEnemy(goblin);
         room2.addItem(ring);
         room2.addItem(slingshot);
         room3.addItem(watch);
         room3.addItem(key);
         room3.addItem(Switch);
+        room3.addEnemy(troll);
         room4.addItem(baton);
         room4.addItem(shortbow);
+        room5.addEnemy(skeleton);
         room6.addItem(sword);
         room7.addItem(crossbow);
         room8.addItem(axe);
+        room9.addEnemy(witch);
         room9.addItem(wand);
         room1.addItem(bread);
         room2.addItem(mushroom);

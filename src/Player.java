@@ -20,13 +20,15 @@ public class Player {
                     %s
                     %s
                     available items: none
-                    """, currentRoom.getName(), currentRoom.getDescription());
+                    %s
+                    """, currentRoom.getName(), currentRoom.getDescription(), currentRoom.printEnemies());
         } else {
             return String.format("""
                     %s
                     %s
                     available items: %s
-                    """, currentRoom.getName(), currentRoom.getDescription(), currentRoom.getItems());
+                    %s
+                    """, currentRoom.getName(), currentRoom.getDescription(), currentRoom.getItems(), currentRoom.printEnemies());
         }
     }
 
@@ -171,6 +173,7 @@ public class Player {
     }
 
     public int attack() {
+
         if (equipped.isEmpty()) {
             return -2;
         }
