@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Adventure {
 
     Map map = new Map();
@@ -34,8 +36,12 @@ public class Adventure {
         return player.dropItem(itemName);
     }
 
-    public void printInventory() {
-        player.printInventory();
+
+    public ArrayList<Item> getInventory(){
+        return player.getInventory();
+    }
+    public ArrayList<Weapon> getEquipped(){
+        return player.getEquipped();
     }
 
     public void printHealth() {
@@ -45,5 +51,12 @@ public class Adventure {
     public EatResult eat(String itemName) {
        return player.eat(itemName);
 
+    }
+    public WeaponEquip equip(String itemName){
+        return player.equip(itemName);
+    }
+
+    public int attack(){
+        return player.attack();
     }
 }

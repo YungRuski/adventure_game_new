@@ -5,11 +5,13 @@ public class Player {
     private final ArrayList<Item> inventory;
     private Item items;
     private int health;
+    private final ArrayList<Weapon> equipped;
 
     public Player(Room firstRoom) {
         this.currentRoom = firstRoom;
         this.inventory = new ArrayList<>();
         this.health = 100;
+        this.equipped = new ArrayList<>();
     }
 
     public String lookAround() {
@@ -68,15 +70,8 @@ public class Player {
         return inventory;
     }
 
-    public void printInventory() {
-        if (inventory.isEmpty()) {
-            IO.println("Nothing in inventory.");
-        }
-        for (Item item : inventory) {
-            if (!inventory.isEmpty()) {
-                IO.println(item);
-            }
-        }
+    public ArrayList<Weapon> getEquipped() {
+        return equipped;
     }
 
     public boolean takeItem(String itemName) {
@@ -86,18 +81,22 @@ public class Player {
             currentRoom.removeItem(item);
             return true;
         }
-        IO.println("There were no items");
         return false;
     }
 
     public boolean dropItem(String itemName) {
         Item item = findItemInventory(itemName);
+
         if (item != null) {
+            if (item instanceof Weapon weapon) {
+                equipped.remove(weapon);
+            }
+
             currentRoom.addItem(item);
             inventory.remove(item);
             return true;
         }
-        IO.println("Nothing to drop");
+
         return false;
     }
 
@@ -154,5 +153,32 @@ public class Player {
             return EatResult.NOT_FOUND;
         }
 
+    }
+
+    public WeaponEquip equip(String itemName) {
+        Item item = findItemInventory(itemName);
+        if (item instanceof Weapon weapon) {
+            equipped.clear();
+            equipped.add(weapon);
+            return WeaponEquip.EQUIPPED;
+        }
+        if (item != null) {
+            return WeaponEquip.NO_WEAPON;
+        } else {
+            return WeaponEquip.CANNOT_ATTACK;
+        }
+
+    }
+
+    public int attack() {
+        if (equipped.isEmpty()) {
+            return -2;
+        }
+        Weapon weapon = equipped.get(0);
+
+        if (!weapon.canUse()) {
+            return 0;
+        }
+        return weapon.attack();
     }
 }
