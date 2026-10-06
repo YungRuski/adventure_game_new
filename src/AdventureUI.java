@@ -87,7 +87,7 @@ public class AdventureUI {
                     }
                 }
                 case "ATTACK" -> {
-                    int result = adventure.attack();
+                    int result = adventure.attack(argument);
 
                     if (result == -2) {
                         IO.println("You don't have a weapon equipped");
@@ -99,7 +99,9 @@ public class AdventureUI {
                         IO.println("You are attacking");
                         IO.println("You have " + (result - 1) + " shots left");
                     }
-
+                }
+                case "ENEMYHP" -> {
+                    adventure.getEnemyHealth();
                 }
                 default -> {
                 }

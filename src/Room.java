@@ -74,7 +74,7 @@ public class Room {
         items.remove(item);
     }
 
-    public ArrayList<Enemy> getEnemy() {
+    public ArrayList<Enemy> getEnemies() {
         return enemies;
     }
 

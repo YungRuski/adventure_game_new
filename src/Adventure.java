@@ -56,9 +56,11 @@ public class Adventure {
         return player.equip(itemName);
     }
 
-    public int attack(){
-        return player.attack();
+    public int attack(String enemyName){
+        return player.attack(enemyName);
     }
-
+    public void getEnemyHealth (){
+        IO.println(player.getEnemyHealth());
+    }
 
 }

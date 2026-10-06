@@ -20,15 +20,19 @@ public class Enemy {
         return enemyName;
     }
 
-    public int attack(){
+    public int attack() {
         return enemyWeapon.attack();
     }
 
-    public void hit(int damage){
-        enemyHealth-=damage;
+    public int hit(int damage) {
+        return enemyHealth -= damage;
 
     }
-    public int getEnemyHealth(){
+
+    public int getEnemyHealth() {
         return enemyHealth;
+    }
+    public String getEnemyName(){
+        return enemyName;
     }
 }

@@ -173,7 +173,7 @@ public class Player {
 
     }
 
-    public int attack() {
+    public int attack(String enemyName) {
 
         if (equipped.isEmpty()) {
             return -2;
@@ -183,7 +183,26 @@ public class Player {
         if (!weapon.canUse()) {
             return 0;
         }
+        Enemy enemy = findEnemyRoom(enemyName);
+        if (enemy == null) {
+            return weapon.attack();
+        }
 
-        return weapon.attack() -= ;
+        int damage = weapon.attack();
+
+        return enemy.hit(damage);
+    }
+
+    public Enemy findEnemyRoom(String enemyName) {
+        for (Enemy enemy : currentRoom.getEnemies()) {
+            if (enemy.getEnemyName().equalsIgnoreCase(enemyName)) {
+                return enemy;
+            }
+        }
+        return null;
+    }
+    public int getEnemyHealth(){
+        Enemy enemy = currentRoom.getEnemies().get(0);
+        return enemy.getEnemyHealth();
     }
 }
