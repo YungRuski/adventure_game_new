@@ -7,6 +7,7 @@ public class Player {
     private int health;
     private final ArrayList<Weapon> equipped;
 
+
     public Player(Room firstRoom) {
         this.currentRoom = firstRoom;
         this.inventory = new ArrayList<>();
@@ -182,6 +183,7 @@ public class Player {
         if (!weapon.canUse()) {
             return 0;
         }
-        return weapon.attack();
+
+        return weapon.attack() -= ;
     }
 }

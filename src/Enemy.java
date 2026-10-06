@@ -26,5 +26,9 @@ public class Enemy {
 
     public void hit(int damage){
         enemyHealth-=damage;
+
+    }
+    public int getEnemyHealth(){
+        return enemyHealth;
     }
 }
