@@ -60,7 +60,7 @@ public class Adventure {
         return player.attack(enemyName);
     }
     public void getEnemyHealth (){
-        IO.println(player.getEnemyHealth());
+        IO.println(player.getEnemyName() + " has " + player.getEnemyHealth() + " HP left");
     }
 
 }

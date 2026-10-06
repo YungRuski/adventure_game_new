@@ -188,9 +188,9 @@ public class Player {
             return weapon.attack();
         }
 
-        int damage = weapon.attack();
-
-        return enemy.hit(damage);
+        int result = weapon.attack();
+        enemy.hit(weapon.getDamage());
+        return result;
     }
 
     public Enemy findEnemyRoom(String enemyName) {
@@ -201,8 +201,14 @@ public class Player {
         }
         return null;
     }
-    public int getEnemyHealth(){
+
+    public int getEnemyHealth() {
         Enemy enemy = currentRoom.getEnemies().get(0);
         return enemy.getEnemyHealth();
+    }
+
+    public String getEnemyName() {
+        Enemy enemy = currentRoom.getEnemies().get(0);
+        return enemy.getEnemyName();
     }
 }

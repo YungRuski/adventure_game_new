@@ -10,5 +10,8 @@ public abstract class Weapon extends Item {
 
     public abstract int attack();
 
+    public  int getDamage(){
+        return damage;
+    }
 }
 
