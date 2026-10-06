@@ -5,7 +5,7 @@ public class Player {
     private final ArrayList<Item> inventory;
     private Item items;
     private int health;
-    private final ArrayList<Weapon> equipped;
+    private final ArrayList<Weapon> equipped; //Kan laves om til ikke at være et ArrayList, og slet final.
 
 
     public Player(Room firstRoom) {
@@ -172,7 +172,7 @@ public class Player {
         }
 
     }
-
+    //Player kan tjekke for om enemy er død
     public int attack(String enemyName) {
 
         if (equipped.isEmpty()) {
@@ -191,6 +191,10 @@ public class Player {
         int result = weapon.attack();
         enemy.hit(weapon.getDamage());
         return result;
+    }
+    // skal laves færdig, eller slettes
+    public int hit(int damage) {
+
     }
 
     public Enemy findEnemyRoom(String enemyName) {
