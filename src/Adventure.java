@@ -37,10 +37,11 @@ public class Adventure {
     }
 
 
-    public ArrayList<Item> getInventory(){
+    public ArrayList<Item> getInventory() {
         return player.getInventory();
     }
-    public ArrayList<Weapon> getEquipped(){
+
+    public ArrayList<Weapon> getEquipped() {
         return player.getEquipped();
     }
 
@@ -49,18 +50,28 @@ public class Adventure {
     }
 
     public EatResult eat(String itemName) {
-       return player.eat(itemName);
+        return player.eat(itemName);
 
     }
-    public WeaponEquip equip(String itemName){
+
+    public WeaponEquip equip(String itemName) {
         return player.equip(itemName);
     }
 
-    public int attack(String enemyName){
+    public int attack(String enemyName) {
         return player.attack(enemyName);
     }
-    public void getEnemyHealth (){
-        IO.println(player.getEnemyName() + " has " + player.getEnemyHealth() + " HP left");
+
+    public int getEnemyHealth() {
+        return player.getEnemyHealth();
+    }
+
+    public String getEnemyName() {
+        return player.getEnemyName();
+    }
+
+    public int enemyAttack(){
+        return 0;
     }
 
 }

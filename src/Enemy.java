@@ -19,9 +19,11 @@ public class Enemy {
     public String toString() {
         return enemyName;
     }
-
+    //Attack skal få fat i player, og players liv.
     public int attack() {
-        return enemyWeapon.attack();
+        int result = enemyWeapon.attack();
+        player.hit(enemyWeapon.getDamage());
+        return result;
     }
 
     public int hit(int damage) {
