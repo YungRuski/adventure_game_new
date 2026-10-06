@@ -7,7 +7,7 @@ public class Enemy {
     private Player player;
 
 
-    public Enemy(String enemyName, String enemyDescription, int enemyHealth, Weapon enemyWeapon){
+    public Enemy(String enemyName, String enemyDescription, int enemyHealth, Weapon enemyWeapon, Room enemyRoom) {
         this.enemyName = enemyName;
         this.enemyDescription = enemyDescription;
         this.enemyHealth = enemyHealth;
@@ -16,13 +16,15 @@ public class Enemy {
     }
 
 
-    public String toString(){
+    public String toString() {
         return enemyName;
     }
 
-    public int enemyAttack(){
-
-        return player.getHealth() -= enemyWeapon.attack();
+    public int attack(){
+        return enemyWeapon.attack();
     }
 
+    public void hit(int damage){
+        enemyHealth-=damage;
+    }
 }

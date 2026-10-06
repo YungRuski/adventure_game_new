@@ -59,4 +59,6 @@ public class Adventure {
     public int attack(){
         return player.attack();
     }
+
+
 }

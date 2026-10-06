@@ -25,6 +25,8 @@ public class Map {
         Food suspiciousSteak = new Food ("Steak", "a steak filled with maggots", -20);
         Food steak = new Food ("Wagyu steak", "a steak filled with fat marbling", 50);
 
+
+        // skal damage værdien lowkey være minus? da den skader en person ligesom de dårlige Food.
         MeleeWeapon knife = new MeleeWeapon("Knife", "a hunting knife.", 7);
         MeleeWeapon sword = new MeleeWeapon("Sword", "a shiny sword.", 10);
         MeleeWeapon baton = new MeleeWeapon("Baton", "a big stick used on civilians.", 5);
@@ -37,11 +39,6 @@ public class Map {
         RangedWeapon potions = new RangedWeapon("Potion", "an instant damage potion", 2, 25);
 
 
-        Enemy troll = new Enemy("Troll", "a small ugly troll", 25, knife);
-        Enemy skeleton = new Enemy("Skeleton", "a spooky scary skeleton", 30, sword);
-        Enemy goblin = new Enemy("Goblin", "a money hungry goblin", 15, stone);
-        Enemy witch = new Enemy("Witch", "A stinking ugly hag", 45, potions);
-
 
         Room room1 = new Room("Room 1", "A room with no distinct features, except two doors.");
         Room room2 = new Room("Room 2", "A room with no distinct features, except two doors.");
@@ -52,6 +49,11 @@ public class Map {
         Room room7 = new Room("Room 7", "A room with no distinct features, except two doors.");
         Room room8 = new Room("Room 8", "A room with no distinct features, except three doors.");
         Room room9 = new Room("Room 9", "A room with no distinct features, except two doors.");
+
+        Enemy troll = new Enemy("Troll", "a small ugly troll", 25, knife, room1);
+        Enemy goblin = new Enemy("Goblin", "a money hungry goblin", 15, stone, room3);
+        Enemy skeleton = new Enemy("Skeleton", "a spooky scary skeleton", 30, sword, room5);
+        Enemy witch = new Enemy("Witch", "A stinking ugly hag", 45, potions, room9);
 
         room1.addItem(lamp);
         room1.addItem(knife);
