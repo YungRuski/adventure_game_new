@@ -197,9 +197,6 @@ public class Player {
 
     }
 
-    public int hit(int damage) {
-
-    }
 
     public Enemy findEnemyRoom(String enemyName) {
         for (Enemy enemy : currentRoom.getEnemies()) {
