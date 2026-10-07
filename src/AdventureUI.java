@@ -94,6 +94,8 @@ public class AdventureUI {
                     } else if (result == -1) {
                         IO.println("You are attacking with your melee weapon");
                         IO.println(adventure.getEnemyName() + " has " + adventure.getEnemyHealth() + " HP left");
+                        IO.println(adventure.getEnemyName() + " is attacking you with " + adventure.getEnemyWeapon());
+                        IO.println(adventure.printHealth());
                     } else if (result == 0) {
                         IO.println("You have no ammunition left");
                     } else if (result == -5) {
@@ -107,6 +109,8 @@ public class AdventureUI {
                         IO.println("You are attacking");
                         IO.println("You have " + (result - 1) + " shots left");
                         IO.println(adventure.getEnemyName() + " has " + adventure.getEnemyHealth() + " HP left");
+                        IO.println(adventure.getEnemyName() + " is attacking you with " + adventure.getEnemyWeapon());
+                        IO.println(adventure.printHealth());
                     }
                 }
 

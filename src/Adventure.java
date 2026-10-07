@@ -45,8 +45,8 @@ public class Adventure {
         return player.getEquipped();
     }
 
-    public void printHealth() {
-        IO.println(player.getHealthDescription());
+    public String printHealth() {
+        return player.getHealthDescription();
     }
 
     public EatResult eat(String itemName) {
@@ -72,6 +72,10 @@ public class Adventure {
 
     public int enemyAttack(){
         return 0;
+    }
+
+    public Weapon getEnemyWeapon(){
+        return player.getEnemyWeapon();
     }
 
 }

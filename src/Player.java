@@ -192,7 +192,7 @@ public class Player {
                 return -5; // enemy er død
             }
             int enemyResult = enemy.attack(this);
-            if(enemyResult == -3){
+            if (enemyResult == -3) {
                 return -3;
             }
             return result;
@@ -226,5 +226,10 @@ public class Player {
     public String getEnemyName() {
         Enemy enemy = currentRoom.getEnemies().get(0);
         return enemy.getEnemyName();
+    }
+
+    public Weapon getEnemyWeapon(){
+        Enemy enemy = currentRoom.getEnemies().get(0);
+        return enemy.getEnemyWeapon();
     }
 }
