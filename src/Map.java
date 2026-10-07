@@ -57,13 +57,13 @@ public class Map {
 
         room1.addItem(lamp);
         room1.addItem(knife);
-        room1.addEnemy(goblin);
+        room1.addEnemy(troll);
         room2.addItem(ring);
         room2.addItem(slingshot);
         room3.addItem(watch);
         room3.addItem(key);
         room3.addItem(Switch);
-        room3.addEnemy(troll);
+        room3.addEnemy(goblin);
         room4.addItem(baton);
         room4.addItem(shortbow);
         room5.addEnemy(skeleton);

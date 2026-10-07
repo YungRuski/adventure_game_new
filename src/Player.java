@@ -172,6 +172,7 @@ public class Player {
         }
 
     }
+
     //Player kan tjekke for om enemy er død
     public int attack(String enemyName) {
 
@@ -184,18 +185,24 @@ public class Player {
             return 0;
         }
         Enemy enemy = findEnemyRoom(enemyName);
-        if (enemy == null) {
+        if (enemy != null) {
+            int result = weapon.attack();
+            int enemyHit = enemy.hit(weapon.getDamage());
+            if (enemyHit <= 0) {
+                return -5; // enemy er død
+            }
+            int enemyResult = enemy.attack(this);
+            if(enemyResult == -3){
+                return -3;
+            }
+            return result;
+        } else if (enemyName.isEmpty()) {
             return weapon.attack();
+        } else {
+            return -4; //enemy er ikke i rummet
         }
-
-        int result = weapon.attack();
-        int enemyHit = enemy.hit(weapon.getDamage());
-        if(enemyHit > 0){
-        int enemyResult = enemy.attack(this);
-        }
-        return result;
     }
-    // skal laves færdig, eller slettes
+
     public int hit(int damage) {
         health -= damage;
         return health;

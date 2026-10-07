@@ -89,19 +89,26 @@ public class AdventureUI {
                 case "ATTACK" -> {
                     int result = adventure.attack(argument);
 
-                        if (result == -2) {
-                            IO.println("You don't have a weapon equipped");
-                        } else if (result == -1) {
-                            IO.println("You are attacking with your melee weapon");
-                            IO.println(adventure.getEnemyName() + " has " + adventure.getEnemyHealth() + " HP left");
-                        } else if (result == 0) {
-                            IO.println("You have no ammunition left");
-                        } else {
-                            IO.println("You are attacking");
-                            IO.println("You have " + (result - 1) + " shots left");
-                            IO.println(adventure.getEnemyName() + " has " + adventure.getEnemyHealth() + " HP left");
-                        }
+                    if (result == -2) {
+                        IO.println("You don't have a weapon equipped");
+                    } else if (result == -1) {
+                        IO.println("You are attacking with your melee weapon");
+                        IO.println(adventure.getEnemyName() + " has " + adventure.getEnemyHealth() + " HP left");
+                    } else if (result == 0) {
+                        IO.println("You have no ammunition left");
+                    } else if (result == -5) {
+                        IO.println("The enemy has died");
+                    } else if (result == -4) {
+                        IO.println("That enemy is not inside this room");
+                    } else if (result == -3) {
+                        IO.println("You have died");
+                        goingIntoRooms = true;
+                    } else {
+                        IO.println("You are attacking");
+                        IO.println("You have " + (result - 1) + " shots left");
+                        IO.println(adventure.getEnemyName() + " has " + adventure.getEnemyHealth() + " HP left");
                     }
+                }
 
 
                 default -> {
