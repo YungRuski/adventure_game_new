@@ -38,6 +38,12 @@ public class Map {
         RangedWeapon wand = new RangedWeapon("Wand", "a wand used by common sorceress", 20, 25);
         RangedWeapon potions = new RangedWeapon("Potion", "an instant damage potion", 2, 25);
 
+        MeleeWeapon enemyKnife = new MeleeWeapon("Knife", "A rusty knife from the enemy.", 7);
+        MeleeWeapon enemyStone = new MeleeWeapon("Stone", "A stone from the dead enemy", 4);
+        MeleeWeapon enemySword = new MeleeWeapon("Sword", "a worn out sword from the enemy.", 10);
+        RangedWeapon enemyPotions = new RangedWeapon("Potion", "the enemy's used potions", 2, 25);
+
+
 
 
         Room room1 = new Room("Room 1", "A room with no distinct features, except two doors.");
@@ -50,10 +56,10 @@ public class Map {
         Room room8 = new Room("Room 8", "A room with no distinct features, except three doors.");
         Room room9 = new Room("Room 9", "A room with no distinct features, except two doors.");
 
-        Enemy troll = new Enemy("Troll", "a small ugly troll", 25, knife, room1);
-        Enemy goblin = new Enemy("Goblin", "a money hungry goblin", 15, stone, room3);
-        Enemy skeleton = new Enemy("Skeleton", "a spooky scary skeleton", 30, sword, room5);
-        Enemy witch = new Enemy("Witch", "A stinking ugly hag", 45, potions, room9);
+        Enemy troll = new Enemy("Troll", "a small ugly troll", 25, enemyKnife, room1);
+        Enemy goblin = new Enemy("Goblin", "a money hungry goblin", 15, enemyStone, room3);
+        Enemy skeleton = new Enemy("Skeleton", "a spooky scary skeleton", 30, enemySword, room5);
+        Enemy witch = new Enemy("Witch", "A stinking ugly hag", 45, enemyPotions, room9);
 
         room1.addItem(lamp);
         room1.addItem(knife);
