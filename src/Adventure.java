@@ -27,6 +27,9 @@ public class Adventure {
     public String lookAround() {
         return player.lookAround();
     }
+    public String newRoomInfo(){
+        return player.newRoomInfo();
+    }
 
     public boolean takeItem(String itemName) {
         return player.takeItem(itemName);

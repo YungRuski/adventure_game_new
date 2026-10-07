@@ -33,6 +33,13 @@ public class Player {
         }
     }
 
+    public String newRoomInfo() {
+            return String.format("""
+                    %s
+                    %s
+                    """, currentRoom.getName(), currentRoom.printEnemies());
+    }
+
     public boolean goNorth() {
         if (currentRoom.getNorth() != null) {
             currentRoom = currentRoom.getNorth();

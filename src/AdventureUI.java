@@ -138,16 +138,16 @@ public class AdventureUI {
     private void go(String direction, Adventure adventure) {
         switch (direction.toUpperCase()) {
             case "NORTH" -> {
-                IO.println(adventure.goNorth() ? "going north" : "Could not go that way");
+                IO.println(adventure.goNorth() ? "going north \n" + adventure.newRoomInfo() : "Could not go that way");
             }
             case "SOUTH" -> {
-                IO.println(adventure.goSouth() ? "going south" : "Could not go that way");
+                IO.println(adventure.goSouth() ? "going south \n" + adventure.newRoomInfo() : "Could not go that way");
             }
             case "EAST" -> {
-                IO.println(adventure.goEast() ? "going east" : "Could not go that way");
+                IO.println(adventure.goEast() ? "going east \n" + adventure.newRoomInfo() : "Could not go that way");
             }
             case "WEST" -> {
-                IO.println(adventure.goWest() ? "going west" : "Could not go that way");
+                IO.println(adventure.goWest() ? "going west \n" + adventure.newRoomInfo() : "Could not go that way");
             }
         }
     }
