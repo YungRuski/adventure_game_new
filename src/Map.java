@@ -38,10 +38,10 @@ public class Map {
         RangedWeapon wand = new RangedWeapon("Wand", "a wand used by common sorceress", 20, 25);
         RangedWeapon potions = new RangedWeapon("Potion", "an instant damage potion", 2, 25);
 
-        MeleeWeapon enemyKnife = new MeleeWeapon("Knife", "A rusty knife from the enemy.", 7);
-        MeleeWeapon enemyStone = new MeleeWeapon("Stone", "A stone from the dead enemy", 4);
-        MeleeWeapon enemySword = new MeleeWeapon("Sword", "a worn out sword from the enemy.", 10);
-        RangedWeapon enemyPotions = new RangedWeapon("Potion", "the enemy's used potions", 2, 25);
+        MeleeWeapon enemyKnife = new MeleeWeapon("Knife", "A rusty knife.", 7);
+        MeleeWeapon enemyStone = new MeleeWeapon("Stone", "A small stone", 4);
+        MeleeWeapon enemySword = new MeleeWeapon("Sword", "a worn out sword.", 10);
+        RangedWeapon enemyPotions = new RangedWeapon("Potion", "dangerous potions", 2, 25);
 
 
 
