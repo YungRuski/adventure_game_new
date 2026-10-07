@@ -189,12 +189,16 @@ public class Player {
         }
 
         int result = weapon.attack();
-        enemy.hit(weapon.getDamage());
+        int enemyHit = enemy.hit(weapon.getDamage());
+        if(enemyHit > 0){
+        int enemyResult = enemy.attack(this);
+        }
         return result;
     }
     // skal laves færdig, eller slettes
     public int hit(int damage) {
-
+        health -= damage;
+        return health;
     }
 
 

@@ -4,8 +4,6 @@ public class Enemy {
     private int enemyHealth;
     private Weapon enemyWeapon;
     private Room enemyRoom;
-    private Player player;
-
 
     public Enemy(String enemyName, String enemyDescription, int enemyHealth, Weapon enemyWeapon, Room enemyRoom) {
         this.enemyName = enemyName;
@@ -19,22 +17,32 @@ public class Enemy {
     public String toString() {
         return enemyName;
     }
+
     //Attack skal få fat i player, og players liv.
-    public int attack() {
+    public int attack(Player player) {
         int result = enemyWeapon.attack();
-        player.hit(enemyWeapon.getDamage());
+        int playerHit = player.hit(enemyWeapon.getDamage());
+        if(playerHit <= 0){
+            return -3;
+        }
         return result;
     }
 
     public int hit(int damage) {
-        return enemyHealth -= damage;
+        enemyHealth -= damage;
 
+        if (enemyHealth <= 0) {
+            enemyRoom.addItem(enemyWeapon);
+            enemyRoom.removeEnemy(this);
+        }
+        return enemyHealth;
     }
 
     public int getEnemyHealth() {
         return enemyHealth;
     }
-    public String getEnemyName(){
+
+    public String getEnemyName() {
         return enemyName;
     }
 }

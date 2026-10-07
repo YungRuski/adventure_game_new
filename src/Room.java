@@ -81,6 +81,9 @@ public class Room {
     public void addEnemy(Enemy enemy) {
         enemies.add(enemy);
     }
+    public void removeEnemy(Enemy enemy){
+        enemies.remove(enemy);
+    }
 
     public String printEnemies() {
         String name = "";
