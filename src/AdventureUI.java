@@ -123,6 +123,12 @@ public class AdventureUI {
         IO.println("Type LOOK to look around");
         IO.println("Type EXIT to quit the program.");
         IO.println("Type HELP to get all commands.");
+        IO.println("Type Take [ITEM NAME] to pick up items.");
+        IO.println("Type Eat [ITEM NAME] to eat the food in your inventory");
+        IO.println("Type Inventory to look in your inventory");
+        IO.println("Type Equip [WEAPON NAME] to equip weapons.");
+        IO.println("Type Attack [ENEMY NAME] to attack the enemies.");
+        IO.println("Type Health to check your hp");
     }
 
     private void go(String direction, Adventure adventure) {
