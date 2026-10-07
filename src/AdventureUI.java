@@ -100,6 +100,7 @@ public class AdventureUI {
                         IO.println("You have no ammunition left");
                     } else if (result == -5) {
                         IO.println("The enemy has died");
+                        IO.println("The enemy has dropped their weapon");
                     } else if (result == -4) {
                         IO.println("That enemy is not inside this room");
                     } else if (result == -3) {
