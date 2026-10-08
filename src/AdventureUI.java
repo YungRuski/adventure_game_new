@@ -67,7 +67,7 @@ public class AdventureUI {
                     }
                 }
                 case "HEALTH" -> {
-                    adventure.printHealth();
+                    IO.println(adventure.printHealth());
                 }
                 case "EAT" -> {
                     EatResult result = adventure.eat(argument);
