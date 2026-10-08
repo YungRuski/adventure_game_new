@@ -8,11 +8,13 @@ public class Room {
     private Room east;
     private Room west;
     private ArrayList<Item> items;
+    private ArrayList<Enemy> enemies;
 
     public Room(String name, String description) {
         this.name = name;
         this.description = description;
         this.items = new ArrayList<>();
+        this.enemies = new ArrayList<>();
     }
 
     public String getName() {
@@ -70,6 +72,31 @@ public class Room {
 
     public void removeItem(Item item) {
         items.remove(item);
+    }
+
+    public ArrayList<Enemy> getEnemies() {
+        return enemies;
+    }
+
+    public void addEnemy(Enemy enemy) {
+        enemies.add(enemy);
+    }
+    public void removeEnemy(Enemy enemy){
+        enemies.remove(enemy);
+    }
+
+    public String printEnemies() {
+        String name = "";
+        if (enemies.size() == 1) {
+            for (Enemy enemy : enemies) {
+                name = name + "Beware! Here Lurks: " + enemy;
+            }
+        } else {
+            for (Enemy enemy : enemies) {
+                name = name + "Beware! Here Lurks: " + enemy + "\n";
+            }
+        }
+        return name;
     }
 
 }

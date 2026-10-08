@@ -27,6 +27,9 @@ public class Adventure {
     public String lookAround() {
         return player.lookAround();
     }
+    public String newRoomInfo(){
+        return player.newRoomInfo();
+    }
 
     public boolean takeItem(String itemName) {
         return player.takeItem(itemName);
@@ -37,26 +40,41 @@ public class Adventure {
     }
 
 
-    public ArrayList<Item> getInventory(){
+    public ArrayList<Item> getInventory() {
         return player.getInventory();
     }
-    public ArrayList<Weapon> getEquipped(){
+
+    public ArrayList<Weapon> getEquipped() {
         return player.getEquipped();
     }
 
-    public void printHealth() {
-        IO.println(player.getHealthDescription());
+    public String printHealth() {
+        return player.getHealthDescription();
     }
 
     public EatResult eat(String itemName) {
-       return player.eat(itemName);
+        return player.eat(itemName);
 
     }
-    public WeaponEquip equip(String itemName){
+
+    public WeaponEquip equip(String itemName) {
         return player.equip(itemName);
     }
 
-    public int attack(){
-        return player.attack();
+    public int attack(String enemyName) {
+        return player.attack(enemyName);
     }
+
+    public int getEnemyHealth() {
+        return player.getEnemyHealth();
+    }
+
+    public String getEnemyName() {
+        return player.getEnemyName();
+    }
+
+    public Weapon getEnemyWeapon(){
+        return player.getEnemyWeapon();
+    }
+
 }

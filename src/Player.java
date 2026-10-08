@@ -2,10 +2,10 @@ import java.util.ArrayList;
 
 public class Player {
     private Room currentRoom;
-    private final ArrayList<Item> inventory;
-    private Item items;
+    private ArrayList<Item> inventory;
     private int health;
-    private final ArrayList<Weapon> equipped;
+    private ArrayList<Weapon> equipped; //Kan laves om til ikke at være et ArrayList, og slet final.
+
 
     public Player(Room firstRoom) {
         this.currentRoom = firstRoom;
@@ -20,14 +20,23 @@ public class Player {
                     %s
                     %s
                     available items: none
-                    """, currentRoom.getName(), currentRoom.getDescription());
+                    %s
+                    """, currentRoom.getName(), currentRoom.getDescription(), currentRoom.printEnemies());
         } else {
             return String.format("""
                     %s
                     %s
                     available items: %s
-                    """, currentRoom.getName(), currentRoom.getDescription(), currentRoom.getItems());
+                    %s
+                    """, currentRoom.getName(), currentRoom.getDescription(), currentRoom.getItems(), currentRoom.printEnemies());
         }
+    }
+
+    public String newRoomInfo() {
+            return String.format("""
+                    %s, %s
+                    %s
+                    """, currentRoom.getName(), currentRoom.getDescription(), currentRoom.printEnemies());
     }
 
     public boolean goNorth() {
@@ -101,10 +110,6 @@ public class Player {
     }
 
 
-    public int getHealth() {
-        return health;
-    }
-
     public String getHealthDescription() {
         if (health >= 100) {
             return "You have " + health + " hp and is healthy.";
@@ -170,7 +175,9 @@ public class Player {
 
     }
 
-    public int attack() {
+    //Player kan tjekke for om enemy er død
+    public int attack(String enemyName) {
+
         if (equipped.isEmpty()) {
             return -2;
         }
@@ -179,6 +186,52 @@ public class Player {
         if (!weapon.canUse()) {
             return 0;
         }
-        return weapon.attack();
+        Enemy enemy = findEnemyRoom(enemyName);
+        if (enemy != null) {
+            int result = weapon.attack();
+            int enemyHit = enemy.hit(weapon.getDamage());
+            if (enemyHit <= 0) {
+                return -5; // enemy er død
+            }
+            int enemyResult = enemy.attack(this);
+            if (enemyResult == -3) {
+                return -3;
+            }
+            return result;
+        } else if (enemyName.isEmpty()) {
+            return weapon.attack();
+        } else {
+            return -4; //enemy er ikke i rummet
+        }
+    }
+
+    public int hit(int damage) {
+        health -= damage;
+        return health;
+    }
+
+
+    public Enemy findEnemyRoom(String enemyName) {
+        for (Enemy enemy : currentRoom.getEnemies()) {
+            if (enemy.getEnemyName().equalsIgnoreCase(enemyName)) {
+                return enemy;
+            }
+        }
+        return null;
+    }
+
+    public int getEnemyHealth() {
+        Enemy enemy = currentRoom.getEnemies().get(0);
+        return enemy.getEnemyHealth();
+    }
+
+    public String getEnemyName() {
+        Enemy enemy = currentRoom.getEnemies().get(0);
+        return enemy.getEnemyName();
+    }
+
+    public Weapon getEnemyWeapon(){
+        Enemy enemy = currentRoom.getEnemies().get(0);
+        return enemy.getEnemyWeapon();
     }
 }

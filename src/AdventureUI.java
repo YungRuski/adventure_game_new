@@ -87,21 +87,37 @@ public class AdventureUI {
                     }
                 }
                 case "ATTACK" -> {
-                    int result = adventure.attack();
+                    int result = adventure.attack(argument);
 
                     if (result == -2) {
                         IO.println("You don't have a weapon equipped");
                     } else if (result == -1) {
                         IO.println("You are attacking with your melee weapon");
+                        IO.println(adventure.getEnemyName() + " has " + adventure.getEnemyHealth() + " HP left");
+                        IO.println(adventure.getEnemyName() + " is attacking you with " + adventure.getEnemyWeapon());
+                        IO.println(adventure.printHealth());
                     } else if (result == 0) {
                         IO.println("You have no ammunition left");
+                    } else if (result == -5) {
+                        IO.println("The enemy has died");
+                        IO.println("The enemy has dropped their weapon");
+                    } else if (result == -4) {
+                        IO.println("That enemy is not inside this room");
+                    } else if (result == -3) {
+                        IO.println("You have died");
+                        goingIntoRooms = true;
                     } else {
                         IO.println("You are attacking");
                         IO.println("You have " + (result - 1) + " shots left");
+                        IO.println(adventure.getEnemyName() + " has " + adventure.getEnemyHealth() + " HP left");
+                        IO.println(adventure.getEnemyName() + " is attacking you with " + adventure.getEnemyWeapon());
+                        IO.println(adventure.printHealth());
                     }
-
                 }
+
+
                 default -> {
+                    IO.println("Type a valid command. Type [HELP] to get a menu showing valid commands.");
                 }
             }
 
@@ -113,21 +129,27 @@ public class AdventureUI {
         IO.println("Type LOOK to look around");
         IO.println("Type EXIT to quit the program.");
         IO.println("Type HELP to get all commands.");
+        IO.println("Type Take [ITEM NAME] to pick up items.");
+        IO.println("Type Eat [ITEM NAME] to eat the food in your inventory");
+        IO.println("Type Inventory to look in your inventory");
+        IO.println("Type Equip [WEAPON NAME] to equip weapons.");
+        IO.println("Type Attack [ENEMY NAME] to attack the enemies.");
+        IO.println("Type Health to check your hp");
     }
 
     private void go(String direction, Adventure adventure) {
         switch (direction.toUpperCase()) {
             case "NORTH" -> {
-                IO.println(adventure.goNorth() ? "going north" : "Could not go that way");
+                IO.println(adventure.goNorth() ? "going north \n" + adventure.newRoomInfo() : "Could not go that way");
             }
             case "SOUTH" -> {
-                IO.println(adventure.goSouth() ? "going south" : "Could not go that way");
+                IO.println(adventure.goSouth() ? "going south \n" + adventure.newRoomInfo() : "Could not go that way");
             }
             case "EAST" -> {
-                IO.println(adventure.goEast() ? "going east" : "Could not go that way");
+                IO.println(adventure.goEast() ? "going east \n" + adventure.newRoomInfo() : "Could not go that way");
             }
             case "WEST" -> {
-                IO.println(adventure.goWest() ? "going west" : "Could not go that way");
+                IO.println(adventure.goWest() ? "going west \n" + adventure.newRoomInfo() : "Could not go that way");
             }
         }
     }
