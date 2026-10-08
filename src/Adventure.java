@@ -73,10 +73,6 @@ public class Adventure {
         return player.getEnemyName();
     }
 
-    public int enemyAttack(){
-        return 0;
-    }
-
     public Weapon getEnemyWeapon(){
         return player.getEnemyWeapon();
     }

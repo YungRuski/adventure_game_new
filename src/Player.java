@@ -110,10 +110,6 @@ public class Player {
     }
 
 
-    public int getHealth() {
-        return health;
-    }
-
     public String getHealthDescription() {
         if (health >= 100) {
             return "You have " + health + " hp and is healthy.";
