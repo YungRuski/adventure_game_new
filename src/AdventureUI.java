@@ -117,6 +117,7 @@ public class AdventureUI {
 
 
                 default -> {
+                    IO.println("Type a valid command. Type [HELP] to get a menu showing valid commands.");
                 }
             }
 

@@ -45,6 +45,9 @@ public class Enemy {
     public String getEnemyName() {
         return enemyName;
     }
+    public String getEnemyDescription(){
+        return enemyDescription;
+    }
 
     public Weapon getEnemyWeapon(){
         return enemyWeapon;

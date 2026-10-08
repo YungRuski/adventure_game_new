@@ -2,10 +2,9 @@ import java.util.ArrayList;
 
 public class Player {
     private Room currentRoom;
-    private final ArrayList<Item> inventory;
-    private Item items;
+    private ArrayList<Item> inventory;
     private int health;
-    private final ArrayList<Weapon> equipped; //Kan laves om til ikke at være et ArrayList, og slet final.
+    private ArrayList<Weapon> equipped; //Kan laves om til ikke at være et ArrayList, og slet final.
 
 
     public Player(Room firstRoom) {
@@ -35,9 +34,9 @@ public class Player {
 
     public String newRoomInfo() {
             return String.format("""
+                    %s, %s
                     %s
-                    %s
-                    """, currentRoom.getName(), currentRoom.printEnemies());
+                    """, currentRoom.getName(), currentRoom.getDescription(), currentRoom.printEnemies());
     }
 
     public boolean goNorth() {
